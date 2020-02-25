@@ -1,3 +1,7 @@
+https://stackoverflow.com/questions/39959900/npm-start-error-with-create-react-app
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

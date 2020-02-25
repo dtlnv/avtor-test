@@ -1,0 +1,151 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    margin-left: 20px;
+    /* list-style: none; */
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.none {
+    display: none !important;
+}
+
+.visible {
+    display: block;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.left {
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.float-right {
+    float: right;
+}
+
+input, button, textarea, select {
+    outline: none;
+    resize: none;
+}
+
+/*  SECTIONS  */
+
+.section {
+    clear: both;
+    padding: 0px;
+    width: 1309px;
+    margin: 0px auto;
+}
+
+/*  COLUMN SETUP  */
+
+.col {
+    display: block;
+    float: left;
+}
+
+.col:first-child {
+    margin-left: 0;
+}
+
+/*  GROUPING  */
+
+.group:before, .group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1;
+    /* For IE 6/7 */
+}
+
+/*  GRID OF FOUR  */
+
+.span_4_of_4 {
+    width: 100%;
+}
+
+.span_3_of_4 {
+    width: 74.6%;
+}
+
+.span_2_of_4 {
+    width: 49.2%;
+}
+
+.span_1_of_4 {
+    width: 23.8%;
+    max-width: 23.8%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+    .col {
+        margin: 1% 0 1% 0%;
+    }
+    .span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 {
+        width: 100%;
+    }
+}
+
+hr {
+    border: 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+* {
+    outline: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 1px solid;
+}
