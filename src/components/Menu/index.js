@@ -5,23 +5,19 @@ import './_styles.css';
 const Menu = () => (
     <nav>
         <ul>
-            <li>
-                <Link to="/">
-                    Home
-                </Link>
-            </li>
-            <li>
-                <Link to="/cities">
-                    Cities
-                </Link>
-            </li>
-            <li>
-                <Link to="/news">
-                    News
-                </Link>
-            </li>
+            <MenuItem title="Home" link="/" />
+            <MenuItem title="Cities" link="/cities" />
+            <MenuItem title="News" link="/news" />
         </ul>
     </nav>
+);
+
+const MenuItem = ({ title, link }) => (
+    <li>
+        <Link to={link} className={document.location.pathname === link ? 'active' : ''}>
+            {title}
+        </Link>
+    </li>
 );
 
 export default Menu;

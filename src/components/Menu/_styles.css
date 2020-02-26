@@ -2,3 +2,8 @@ nav ul li {
     display: inline;
     padding: 5px 10px;
 }
+
+nav ul li a.active {
+    border-bottom: 1px solid;
+    color: #4487b4;
+}
