@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './_styles.css';
-import { datetime } from '../../functions';
+import { datetime } from '../../utils/functions';
 
 const NewsList = ({ list }) => {
     return (
