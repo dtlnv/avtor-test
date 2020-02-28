@@ -1,50 +1,58 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import { WEATHER_API_KEY, WEATHER_API_URL, WIcon } from '../utils/constants';
+import CurrentCityWeather from '../components/CurrentCityWeather';
+import { WEATHER_API_URL } from '../utils/constants';
 import Axios from 'axios';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
 
 class Home extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            currentWeather: {}
+            currentWeather: {},
+            error: false
         }
     }
 
     componentDidMount() {
-        this.getLocation()
-
-        if (this.state.latitude && this.state.longitude) {
-
-        }
+        this.getLocation();
     }
 
-    getLocation = async () => {
+    getLocation = () => {
         navigator.geolocation.getCurrentPosition(async position => {
             if (position) {
-                console.log(position)
-                const url = `${WEATHER_API_URL}?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${WEATHER_API_KEY}&units=metric`;
-                console.log(url)
-                const receivedData = (await Axios.get(url)).data;
-                console.log(receivedData)
-                
-                this.setState({
-                    currentWeather: receivedData
-                })
+                try {
+                    const url = `${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`;
+                    const receivedData = (await Axios.get(url)).data;
+                    
+                    this.setState({ currentWeather: receivedData });
+                } catch {
+                    this.setState({ error: true });
+                }
             }
         }, error => {
+            this.setState({ error: true });
             console.error(error);
         }, {
-            enableHighAccuracy: true
+            enableHighAccuracy: true,
+            timeout: 30000,
+            maximumAge: 600000
         });
     }
 
     render() {
         return (
             <Layout>
-                home
-                {'weather' in this.state.currentWeather && <img src={WIcon(this.state.currentWeather.weather[0].icon)} /> }
+                {'weather' in this.state.currentWeather ?
+                    <CurrentCityWeather weather={this.state.currentWeather} />
+                    :
+                    this.state.error ?
+                        <Error>Can't get your location.</Error>
+                        :
+                        <Loading />
+                }
             </Layout>
         );
     }

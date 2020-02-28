@@ -17,7 +17,7 @@ const NewsList = ({ list }) => {
 
 const NewsItem = ({ post }) => {
     return (
-        <article>
+        <article className="card">
             <a href={post.url} target="_blank" rel="noopener noreferrer">
                 <h2 className="title">{post.title}</h2>
             </a>

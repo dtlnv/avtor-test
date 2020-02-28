@@ -21,11 +21,6 @@ footer {
 
 article {
     margin: 30px auto;
-    width: 500px;
-    padding: 10px 20px ;
-    background: #fff;
-    box-shadow: #eee 0px 0px 13px;
-    border-radius: 5px;
 }
 
 article h2 {

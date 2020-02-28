@@ -1,6 +1,8 @@
+/* @import url('reset.css'); */
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #fbfbfb;
@@ -11,6 +13,20 @@ a {
     text-decoration: none;
     color: #2f9ae3;
 }
+
 a:hover {
     color: #2271a5;
+}
+
+.card {
+    width: 500px;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: #eee 0px 0px 13px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.center {
+    text-align: center;
 }
