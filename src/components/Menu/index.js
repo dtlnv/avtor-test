@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './_styles.css';
 import FormatSelect from '../FormatSelect';
+import MenuItem from './item';
+
+/**
+ * @name Menu
+ * @description Print navigation menu and format select
+ */
 
 const Menu = () => (
     <nav>
@@ -12,14 +17,6 @@ const Menu = () => (
             <FormatSelect />
         </ul>
     </nav>
-);
-
-const MenuItem = ({ title, link }) => (
-    <li>
-        <Link to={link} className={document.location.pathname === link ? 'active' : ''}>
-            {title}
-        </Link>
-    </li>
 );
 
 export default Menu;

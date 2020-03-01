@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './_styles.css';
+import { projectName } from '../../utils/constants';
 
-const Menu = () => (
+/**
+ * @name Logo
+ * @description Print the logo 
+ */
+
+const Logo = () => (
     <Link to="/">
         <div className="logo">
-            Weather
+            {projectName}
         </div>
     </Link>
 );
 
-export default Menu;
+export default Logo;

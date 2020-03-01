@@ -1,19 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './_styles.css';
 import { datetime } from '../../utils/functions';
 
-const NewsList = ({ list }) => {
-    return (
-        <div className="news_list">
-            <h1>News</h1>
-            {list.length > 0 ?
-                list.map(((post, index) => {
-                    return <NewsItem post={post} key={index} />
-                })) : null}
-        </div>
-    );
-}
+/**
+ * @name NewsItem
+ * @description Print one news post
+ * @param {object} post
+ */
 
 const NewsItem = ({ post }) => {
     return (
@@ -32,8 +25,8 @@ const NewsItem = ({ post }) => {
     )
 }
 
-NewsList.propTypes = {
-    list: PropTypes.array
+NewsItem.propTypes = {
+    post: PropTypes.object
 }
 
-export default NewsList;
+export default NewsItem;

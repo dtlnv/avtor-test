@@ -1,21 +1,21 @@
 import { WIcon } from "./constants";
 
-export function datetime(paramdate, isTimestamp) {
+export function datetime(paramdate) {
     try {
-        let date = new Date(paramdate);
-        let options = { month: 'long', day: 'numeric' }
-        return date.toLocaleDateString('en-US', options) + " " + date.toLocaleTimeString([], { timeStyle: 'short' });
+        const date = new Date(paramdate);
+        return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) + ", " + date.toLocaleTimeString([], { timeStyle: 'short' });
     } catch {
         return '';
     }
 }
 
 export function formated(weather, format) {
+    
     const temparature = (number, format) =>
-        format === 'imperial' ? (number - 273.15) * 9 / 5 + 32 : number - 273.15;
+        (format === 'imperial' ? (number - 273.15) * 9 / 5 + 32 : number - 273.15).toFixed(0);
 
     const speed = (number, format) =>
-        format === 'imperial' ? (number * 0.621371).toFixed(2) : number;
+        (format === 'imperial' ? number * 0.621371 : number).toFixed(0);
 
     const speedFormat = format =>
         format === 'imperial' ? 'mph' : 'kmph';
@@ -32,7 +32,6 @@ export function formated(weather, format) {
             return '';
         }
     }
-
 
     return {
         city: weather.name,

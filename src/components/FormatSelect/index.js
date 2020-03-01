@@ -4,11 +4,14 @@ import { changeFormat } from '../../utils/globalStorage';
 import { useSelector } from 'react-redux';
 
 /**
+ * @name FormatSelect
+ * @description Print select element with metric formats: 
  * metric - Celsius
  * imperial - Fahrenheit
  */
 
 const FormatSelect = () => {
+
     const defaultFormat = useSelector(state => state.format);
 
     const changeFormatHandle = e => {

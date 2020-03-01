@@ -2,6 +2,13 @@ import React from 'react';
 import Menu from '../Menu';
 import Logo from '../Logo';
 import './_styles.css'; 
+import { projectName } from '../../utils/constants';
+
+/**
+ * @name Layout
+ * @description Generate layout of the page
+ * @param {Element} children 
+ */
 
 const Layout = ({ children }) => (
     <>
@@ -13,7 +20,7 @@ const Layout = ({ children }) => (
             {children}
         </section>
         <footer>
-            &copy; {2020}
+            &copy; {(new Date()).getFullYear()} {projectName} by dtelnov
         </footer>
     </>
 );

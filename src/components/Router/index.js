@@ -8,8 +8,15 @@ import News from '../../pages/News';
 import _404 from '../../pages/_404';
 import { syncStorageAndReducer } from '../../utils/globalStorage';
 
+/**
+ * @name Router
+ * @description Building routing system with redux provider
+ */
+
 const Router = () => {
+
     syncStorageAndReducer();
+
     return (
         <Provider store={store}>
             <BrowserRouter>

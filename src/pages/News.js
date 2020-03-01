@@ -1,13 +1,11 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import NewsList from '../components/NewsList';
+import NewsList from '../components/News';
 import Axios from 'axios';
 import Button from '../components/Button';
-import { NEWS_API_URL } from '../utils/constants';
+import { NEWS_API_URL, POSTS_COUNT } from '../utils/constants';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
-
-const PAGE_SIZE = 10;
 
 class News extends React.Component {
 
@@ -34,7 +32,7 @@ class News extends React.Component {
     getArticles = async (nextPage) => {
         try {
             const pageNumber = nextPage ? nextPage : this.page;
-            const url = `${NEWS_API_URL}&country=us&pageSize=${PAGE_SIZE}&page=${pageNumber}`;
+            const url = `${NEWS_API_URL}&country=us&pageSize=${POSTS_COUNT}&page=${pageNumber}`;
             const receivedData = (await Axios.get(url)).data;
             if (receivedData.totalResults <= this.state.articlesList.length) {
                 this.setState({ showMoreButton: false });
