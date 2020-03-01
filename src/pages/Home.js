@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import CurrentCityWeather from '../components/CurrentCityWeather';
 import { WEATHER_API_URL } from '../utils/constants';
 import Axios from 'axios';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
+import CityCard from '../components/CityCard';
 
 class Home extends React.Component {
 
@@ -12,7 +12,7 @@ class Home extends React.Component {
         super(props);
         this.state = {
             currentWeather: {},
-            error: false
+            error: false,
         }
     }
 
@@ -24,9 +24,9 @@ class Home extends React.Component {
         navigator.geolocation.getCurrentPosition(async position => {
             if (position) {
                 try {
-                    const url = `${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`;
+                    const url = `${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
                     const receivedData = (await Axios.get(url)).data;
-                    
+
                     this.setState({ currentWeather: receivedData });
                 } catch {
                     this.setState({ error: true });
@@ -46,7 +46,7 @@ class Home extends React.Component {
         return (
             <Layout>
                 {'weather' in this.state.currentWeather ?
-                    <CurrentCityWeather weather={this.state.currentWeather} />
+                    <CityCard weather={this.state.currentWeather} current />
                     :
                     this.state.error ?
                         <Error>Can't get your location.</Error>

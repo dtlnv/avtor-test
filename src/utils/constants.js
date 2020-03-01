@@ -9,7 +9,7 @@ export const NEWS_API_URL = `http://newsapi.org/v2/top-headlines/?apiKey=${NEWS_
 export const WEATHER_API_KEY = 'b0bff580401faa662ff4afb54790299a';
 
 // weather api URL
-export const WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/weather/?appid=${WEATHER_API_KEY}`;
+export const WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/weather/?appid=${WEATHER_API_KEY}&units=standart`;
 
 // weather api icon
 export const WIcon = (icon) => `http://openweathermap.org/img/wn/${icon}@2x.png`;
