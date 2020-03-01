@@ -2,7 +2,7 @@
 
 import { store, setFormat } from './reducer';
 
-const STORAGE = window.sessionStorage;
+const STORAGE = window.localStorage;
 
 export function changeFormat(newFormat) {
     store.dispatch(setFormat(newFormat));

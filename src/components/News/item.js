@@ -10,7 +10,7 @@ import { datetime } from '../../utils/functions';
 
 const NewsItem = ({ post }) => {
     return (
-        <article className="card">
+        <article>
             <a href={post.url} target="_blank" rel="noopener noreferrer">
                 <h2 className="title">{post.title}</h2>
             </a>

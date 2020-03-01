@@ -1,38 +1,182 @@
-.cityCard {
+.city {
+    /* padding: 20px; */
+    color: #fff;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 30px;
+    /* height: 50vh; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    backdrop-filter: brightness(60%);
+    backdrop-filter: drop-shadow(4px 4px 10px blue);
+
+}
+
+/* Shine */
+
+.city:after {
+    content: '';
+    top: 0;
+    opacity: .2;
+    transform: translateX(100%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    animation: slide 1s infinite;
+  
+}
+
+
+.city:last-child {
+    margin-bottom: 0px;
+}
+
+.city h2 {
+    margin: 0px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.city h2 i {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.city h3 {
+    margin: 0px;
+    font-size: 30px;
+}
+
+.temperature {
+    display: flex;
     align-items: center;
-    text-align: center;
-    justify-content: space-evenly;
-    padding: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.cityCard img {
-    display: block;
-    margin: 0 auto;
+.temperature img {
     width: 50px;
+    margin: 0px 10px;
+    border-radius: 100px;
 }
 
-.mainData {
-    width: 50%;
-    text-align: center;
+small {
+    font-size: 15px;
 }
 
 .details {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 40%;
 }
 
-.details dt {
-    text-transform: uppercase;
-    font-size: 13px;
+dt {
+    text-transform: lowercase;
+    font-size: 15px;
 }
 
-.details dd {
+dd {
     margin-left: 0px;
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 900;
+}
+
+.hour-1 {
+    background-color: #1c2152;
+}
+
+.hour-2 {
+    background-color: #2a327a;
+}
+
+.hour-3 {
+    background-color: #313986;
+}
+
+.hour-4 {
+    background-color: #3a44a3;
+}
+
+.hour-5 {
+    background-color: #4450be;
+}
+
+.hour-6 {
+    background-color: #4e5cda;
+}
+
+.hour-7 {
+    background-color: #5565ee;
+}
+
+.hour-8 {
+    background-color: #6675f7;
+}
+
+.hour-9 {
+    background-color: #818dff;
+}
+
+.hour-10 {
+    background-color: #8691f0;
+}
+
+.hour-11 {
+    background-color: #a4acf5;
+}
+
+.hour-12 {
+    background-color: #a3a9e6;
+}
+
+.hour-13 {
+    background-color: #9096d8;
+}
+
+.hour-14 {
+    background-color: #858bc9;
+}
+
+.hour-15 {
+    background-color: #7378b4;
+}
+
+.hour-16 {
+    background-color: #656aa3;
+}
+
+.hour-17 {
+    background-color: #585d92;
+}
+
+.hour-18 {
+    background-color: #4d5181;
+}
+
+.hour-19 {
+    background-color: #424672;
+}
+
+.hour-20 {
+    background-color: #383c63;
+}
+
+.hour-21 {
+    background-color: #303458;
+}
+
+.hour-22 {
+    background-color: #252949;
+}
+
+.hour-23 {
+    background-color: #1b1f3d;
+}
+
+.hour-0 {
+    background-color: #1c2152;
 }

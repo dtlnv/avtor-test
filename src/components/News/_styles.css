@@ -1,35 +1,24 @@
-header {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0px;
-}
-
-#container {
-    margin: 50px auto;
-    width: 800px;
-    max-width: 96%;
-}
-
-footer {
-    font-size: 12px;
-    text-align: center;
-}
 
 .news_list h1 {
     text-align: center;
 }
 
 article {
+    width: 500px;
+    max-width: 100%;
     margin: 30px auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+article:last-child {
+    border-bottom: 0px;
 }
 
 article h2 {
-    /* font-weight: ; */
     margin: 10px 0px;
 }
 article img {
     max-width: 100%;
-    /* margin: 10px 0px; */
 }
 
 article .description {

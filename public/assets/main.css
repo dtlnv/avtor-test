@@ -5,7 +5,7 @@ body {
     font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #fbfbfb;
+    /* background-color: #fbfbfb; */
     color: #2e2e30;
 }
 
@@ -15,16 +15,7 @@ a {
 }
 
 a:hover {
-    color: #2271a5;
-}
-
-.card {
-    width: 500px;
-    padding: 10px 20px;
-    background: #fff;
-    box-shadow: #eee 0px 0px 13px;
-    border-radius: 5px;
-    box-sizing: border-box;
+    color: #2271a5 !important;
 }
 
 .center {
