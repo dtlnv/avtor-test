@@ -1,5 +1,10 @@
 import { WIcon } from "./constants";
 
+/**
+ * @name datetime
+ * @description make readable time string for news
+ * @param {string} paramdate 
+ */
 export function datetime(paramdate) {
     try {
         const date = new Date(paramdate);
@@ -9,6 +14,12 @@ export function datetime(paramdate) {
     }
 }
 
+/**
+ * @name formated
+ * @description formating weather data based on format
+ * @param {object} weather 
+ * @param {string} format 
+ */
 export function formated(weather, format) {
 
     const temparature = (number, format) =>

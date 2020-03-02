@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './_styles.css';
 import NewsItem from './item';
+import './_styles.css';
 
 /**
  * @name NewsList
@@ -14,9 +14,9 @@ const NewsList = ({ list = [] }) => (
         <h1>News</h1>
 
         {list.length > 0 ?
-            list.map(((post, index) => {
-                return <NewsItem post={post} key={index} />
-            })) : null}
+            list.map(((post, index) =>
+                <NewsItem post={post} key={index} />
+            )) : null}
     </div>
 );
 

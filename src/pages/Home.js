@@ -10,41 +10,10 @@ import { removeCityHandle } from '../utils/globalStorage';
 
 class Home extends React.Component {
 
-    static getCityWeather = async (position, callback) => {
-        try {
-            const url = `${WEATHER_API_URL}&q=${position}`;
-            callback(null, (await Axios.get(url)).data)
-        } catch (e) {
-            callback(e);
-        }
-    }
-
-    static getCurrentWeather = callback => {
-        navigator.geolocation.getCurrentPosition(async position => {
-            if (position) {
-                try {
-                    const url = `${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
-                    callback(null, (await Axios.get(url)).data)
-                } catch (e) {
-                    callback(e)
-                }
-            }
-        }, error => {
-            callback(error);
-        }, {
-            enableHighAccuracy: true,
-            timeout: 30000,
-            maximumAge: 600000
-        });
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentWeather: {},
-            following: [],
-            error: false,
-        }
+    state = {
+        currentWeather: {},
+        following: [],
+        error: false,
     }
 
     componentDidMount() {
@@ -59,7 +28,6 @@ class Home extends React.Component {
         if (this.props.cities.length > 0) {
             this.props.cities.forEach(city => {
                 Home.getCityWeather(city.name, (err, weather) => {
-                    console.log(weather)
                     this.setState({ following: [...this.state.following, { cityId: city.id, ...weather }] })
                 })
             })
@@ -94,6 +62,32 @@ class Home extends React.Component {
             </Layout>
         );
     }
+}
+
+Home.getCityWeather = async (position, callback) => {
+    try {
+        callback(null, (await Axios.get(`${WEATHER_API_URL}&q=${position}`)).data)
+    } catch (e) {
+        callback(e);
+    }
+}
+
+Home.getCurrentWeather = callback => {
+    navigator.geolocation.getCurrentPosition(async position => {
+        if (position) {
+            try {
+                callback(null, (await Axios.get(`${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`)).data)
+            } catch (e) {
+                callback(e)
+            }
+        }
+    }, error => {
+        callback(error);
+    }, {
+        enableHighAccuracy: true,
+        timeout: 30000,
+        maximumAge: 600000
+    });
 }
 
 function mapStateToProps(state) {

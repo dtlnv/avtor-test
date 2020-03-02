@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './_styles.css';
 import { projectName } from '../../utils/constants';
+import './_styles.css';
 
 /**
  * @name Logo

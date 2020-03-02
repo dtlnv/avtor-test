@@ -9,37 +9,24 @@ import Loading from '../components/Loading';
 
 class News extends React.Component {
 
-    static getArticles = async (nextPage, callback) => {
-        try {
-            const pageNumber = nextPage ? nextPage : this.page;
-            const url = `${NEWS_API_URL}&country=us&pageSize=${POSTS_COUNT}&page=${pageNumber}`;
-            callback(null, (await Axios.get(url)).data);
-        } catch (e) {
-            callback(e);
-        }
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            articlesList: [],
-            page: 1,
-            showMoreButton: true,
-            error: false
-        }
+    state = {
+        articlesList: [],
+        page: 1,
+        showMoreButton: true,
+        error: false
     }
 
     componentDidMount() {
-        News.getArticles(null, this.apiCallback);
+        News.getArticles(null, this.newsCallback);
     }
 
     moreButtonHandle = () => {
         const nextPage = this.state.page + 1;
         this.setState({ page: nextPage });
-        News.getArticles(nextPage, this.apiCallback);
+        News.getArticles(nextPage, this.newsCallback);
     }
 
-    apiCallback = (err, list) => {
+    newsCallback = (err, list) => {
         if (err) {
             this.setState({ error: true });
         } else {
@@ -69,6 +56,15 @@ class News extends React.Component {
                         : <Loading />}
             </Layout>
         );
+    }
+}
+
+News.getArticles = async (nextPage, callback) => {
+    try {
+        const pageNumber = nextPage ? nextPage : 0;
+        callback(null, (await Axios.get(`${NEWS_API_URL}&country=us&pageSize=${POSTS_COUNT}&page=${pageNumber}`)).data);
+    } catch (e) {
+        callback(e);
     }
 }
 

@@ -7,22 +7,9 @@ import SearchList from '../components/SearchList';
 
 class Cities extends React.Component {
 
-    static getCities = async (prefix, callback) => {
-        try {
-            const url = `${CITIES_API_URL}&q=${prefix}`;
-            const data = (await Axios.get(url)).data.results;
-            callback(null, data)
-        } catch (e) {
-            callback(e)
-        }
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            list: [],
-            error: false,
-        }
+    state = {
+        list: [],
+        error: false,
     }
 
     searchHandle = e => {
@@ -38,7 +25,6 @@ class Cities extends React.Component {
     }
 
     render() {
-        console.log(this.state.list)
         return (
             <Layout>
                 <SearchCity searchHandle={this.searchHandle} />
@@ -49,6 +35,14 @@ class Cities extends React.Component {
                 }
             </Layout>
         );
+    }
+}
+
+Cities.getCities = async (prefix, callback) => {
+    try {
+        callback(null, (await Axios.get(`${CITIES_API_URL}&q=${prefix}`)).data.results);
+    } catch (e) {
+        callback(e)
     }
 }
 

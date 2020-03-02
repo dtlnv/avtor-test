@@ -1,4 +1,3 @@
-
 // news api key and URL
 const NEWS_API_KEY = '50987e9919c6472487cd7ff086d73368';
 export const NEWS_API_URL = `https://newsapi.org/v2/top-headlines/?apiKey=${NEWS_API_KEY}`;

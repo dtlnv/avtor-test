@@ -1,8 +1,8 @@
 import React from 'react';
 import Menu from '../Menu';
 import Logo from '../Logo';
-import './_styles.css'; 
 import { projectName } from '../../utils/constants';
+import './_styles.css'; 
 
 /**
  * @name Layout

@@ -5,11 +5,12 @@ import './_styles.css';
 /**
  * @name Button
  * @description Print button with external handler
- * @param {void} clickHandle 
+ * @param {function} clickHandle 
  * @param {Element} children 
+ * @param {string} className
  */
 
-const Button = ({ clickHandle, children, className }) => (
+const Button = ({ clickHandle, children, className = '' }) => (
     <button className={`btn ${className}`} onClick={clickHandle}>
         {children}
     </button>
@@ -17,7 +18,8 @@ const Button = ({ clickHandle, children, className }) => (
 
 Button.propTypes = {
     clickHandle: PropTypes.func.isRequired,
-    children: PropTypes.any.isRequired
+    children: PropTypes.any.isRequired,
+    className: PropTypes.string
 }
 
 export default Button;

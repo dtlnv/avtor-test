@@ -10,6 +10,7 @@ import { CITIES_API_URL_MAP } from '../../utils/constants';
  * @description Print city card based on the received data
  * @param {object} weather - data from api
  * @param {boolean} current - if current city then print location icon
+ * @param {function} removeHandle
  */
 
 const CityCard = ({ weather, current = false, removeHandle = () => { } }) => {
@@ -20,7 +21,6 @@ const CityCard = ({ weather, current = false, removeHandle = () => { } }) => {
     if (!data) {
         return null;
     } else {
-
         return (
             <div className={`city center hour-${parseInt(data.cityTime)}`}>
                 <iframe title={data.city} src={`${CITIES_API_URL_MAP}&q=${data.position.lat},${data.position.lon}`} className="map" />
@@ -64,7 +64,8 @@ const CityCard = ({ weather, current = false, removeHandle = () => { } }) => {
 
 CityCard.propTypes = {
     weather: PropTypes.object.isRequired,
-    current: PropTypes.bool
+    current: PropTypes.bool,
+    removeHandle: PropTypes.func
 }
 
 export default CityCard;

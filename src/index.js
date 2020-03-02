@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './components/Router';
+import App from './components/_App';
 
-ReactDOM.render(<Router />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 if (module.hot) {
     module.hot.accept();

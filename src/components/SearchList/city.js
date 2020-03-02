@@ -6,7 +6,7 @@ import './_styles.css';
 
 /**
  * @name City
- * @description Print the city
+ * @description Print the city in the search
  * @param {object} city
  * @param {boolean} following
  */

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
  * @description Print select element with metric formats: 
  * metric - Celsius
  * imperial - Fahrenheit
+ * Change reducer when changing metric
  */
 
 const FormatSelect = () => {
