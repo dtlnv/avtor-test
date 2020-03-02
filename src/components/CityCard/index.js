@@ -11,16 +11,17 @@ import './_styles.css';
  * @param {boolean} current - if current city then print location icon
  */
 
-const CityCard = ({ weather, current = false }) => {
+const CityCard = ({ weather, current = false, removeHandle = () => {} }) => {
 
     const format = useSelector(state => state.format);
     const data = formated(weather, format);
 
     return (
         <div className={`city center hour-${parseInt(data.cityTime)}`}>
-            <h2>{current ? <i className="fas fa-location-arrow"></i> : ""} {data.city}</h2>
+            {!current ? <div className="removeCity" onClick={() => removeHandle(weather.cityId)}><i className="fas fa-times"></i></div> : ''}
+            <h2>{current ? <i className="fas fa-location-arrow"></i> : ""} {data.city}, {data.countryCode}</h2>
             <div className="temperature">
-                <h3>{data.cityTime}</h3> 
+                <h3>{data.cityTime}</h3>
                 <img src={data.icon} alt={data.description} />
                 <h3>{data.temperature}{data.format.sign}</h3>
             </div>

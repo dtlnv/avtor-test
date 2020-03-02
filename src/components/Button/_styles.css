@@ -12,3 +12,11 @@
     cursor: pointer;
     background-color: #2271a5;
 }
+
+.btn.red {
+    background-color: #e32f2f;
+}
+
+.btn.red:hover {
+    background-color: #a52222;
+}

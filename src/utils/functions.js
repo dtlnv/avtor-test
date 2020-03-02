@@ -47,6 +47,7 @@ export function formated(weather, format) {
 
     return {
         city: weather.name,
+        countryCode: weather.sys.country,
         temperature: temparature(weather.main.temp, format),
         icon: WIcon(weather.weather[0].icon),
         description: weather.weather[0].description,
@@ -61,4 +62,8 @@ export function formated(weather, format) {
             speed: speedFormat(format)
         }
     }
+}
+
+export function citiesSort(a, b) {
+    return a.name > b.name;
 }

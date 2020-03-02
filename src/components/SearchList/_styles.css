@@ -1,0 +1,15 @@
+.cityInSearch {
+    display: flex;
+    width: 600px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+
+.cityInSearch:hover {
+    background: #f9f9f9;
+}
+
+.cityInSearch h2 {
+    margin: 0px;
+}

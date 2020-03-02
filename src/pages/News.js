@@ -9,6 +9,16 @@ import Loading from '../components/Loading';
 
 class News extends React.Component {
 
+    static getArticles = async (nextPage, callback) => {
+        try {
+            const pageNumber = nextPage ? nextPage : this.page;
+            const url = `${NEWS_API_URL}&country=us&pageSize=${POSTS_COUNT}&page=${pageNumber}`;
+            callback(null, (await Axios.get(url)).data);
+        } catch (e) {
+            callback(e);
+        }
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -20,28 +30,25 @@ class News extends React.Component {
     }
 
     componentDidMount() {
-        this.getArticles();
+        News.getArticles(null, this.apiCallback);
     }
 
     moreButtonHandle = () => {
         const nextPage = this.state.page + 1;
         this.setState({ page: nextPage });
-        this.getArticles(nextPage);
+        News.getArticles(nextPage, this.apiCallback);
     }
 
-    getArticles = async (nextPage) => {
-        try {
-            const pageNumber = nextPage ? nextPage : this.page;
-            const url = `${NEWS_API_URL}&country=us&pageSize=${POSTS_COUNT}&page=${pageNumber}`;
-            const receivedData = (await Axios.get(url)).data;
-            if (receivedData.totalResults <= this.state.articlesList.length) {
+    apiCallback = (err, list) => {
+        if (err) {
+            this.setState({ error: true });
+        } else {
+            if (list.totalResults <= this.state.articlesList.length) {
                 this.setState({ showMoreButton: false });
             }
-            if (receivedData.articles) {
-                this.setState({ articlesList: [...this.state.articlesList, ...receivedData.articles] })
+            if (list.articles) {
+                this.setState({ articlesList: [...this.state.articlesList, ...list.articles] })
             }
-        } catch {
-            this.setState({ error: true });
         }
     }
 

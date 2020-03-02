@@ -8,10 +8,10 @@ import './_styles.css';
  */
 
 const Error = ({ children }) => (
-    <>
+    <div className="error">
         <i className="sadicon far fa-sad-cry"></i>
         {children ? children : 'Please reload page later.'}
-    </>
+    </div>
 );
 
 export default Error;

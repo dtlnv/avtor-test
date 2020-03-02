@@ -5,38 +5,33 @@ import Axios from 'axios';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
 import CityCard from '../components/CityCard';
+import { connect } from 'react-redux';
+import { citiesSort } from '../utils/functions';
+import { removeCityHandle } from '../utils/globalStorage';
 
 class Home extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentWeather: {},
-            error: false,
+    static getCityWeather = async (position, callback) => {
+        try {
+            const url = `${WEATHER_API_URL}&lat=${position.lat}&lon=${position.lon}`;
+            callback(null, (await Axios.get(url)).data)
+        } catch (e) {
+            callback(e);
         }
     }
 
-    componentDidMount() {
-        this.getLocation();
-    }
-
-    getLocation = () => {
-        // this.setState({currentWeather: {"coord":{"lon":32.06,"lat":46.95},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],"base":"stations","main":{"temp":279.22,"feels_like":273.91,"temp_min":279.15,"temp_max":279.26,"pressure":1019,"humidity":48},"visibility":10000,"wind":{"speed":4,"deg":180},"clouds":{"all":85},"dt":1583079264,"sys":{"type":1,"id":8913,"country":"UA","sunrise":1583037086,"sunset":1583077021},"timezone":7200,"id":700569,"name":"Mykolayiv","cod":200}})
-        // this.setState({currentWeather: {"coord":{"lon":-74.01,"lat":40.71},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"base":"stations","main":{"temp":279.2,"feels_like":271.38,"temp_min":277.59,"temp_max":280.93,"pressure":1019,"humidity":28},"visibility":16093,"wind":{"speed":6.7,"deg":310,"gust":10.8},"clouds":{"all":1},"dt":1583095415,"sys":{"type":1,"id":4686,"country":"US","sunrise":1583062166,"sunset":1583102848},"timezone":-18000,"id":5128581,"name":"New York","cod":200}})
+    static getCurrentWeather = callback => {
         navigator.geolocation.getCurrentPosition(async position => {
             if (position) {
                 try {
                     const url = `${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
-                    const receivedData = (await Axios.get(url)).data;
-
-                    this.setState({ currentWeather: receivedData });
-                } catch {
-                    this.setState({ error: true });
+                    callback(null, (await Axios.get(url)).data)
+                } catch (e) {
+                    callback(e)
                 }
             }
         }, error => {
-            this.setState({ error: true });
-            console.error(error);
+            callback(error);
         }, {
             enableHighAccuracy: true,
             timeout: 30000,
@@ -44,10 +39,43 @@ class Home extends React.Component {
         });
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentWeather: {},
+            following: [],
+            error: false,
+        }
+    }
+
+    componentDidMount() {
+        Home.getCurrentWeather((err, data) => {
+            if (err) {
+                this.setState({ error: true });
+            } else {
+                this.setState({ currentWeather: data });
+            }
+        });
+
+        if (this.props.cities.length > 0) {
+            this.props.cities.sort(citiesSort).forEach(city => {
+                Home.getCityWeather({lat: city.lat, lon: city.lon}, (err, weather) => {
+                    this.setState({ following: [...this.state.following, { cityId: city.id, ...weather }] })
+                })
+            })
+        }
+    }
+
+    removeHandle = id => {
+        const newFollowing = this.state.following.filter(city => city.cityId !== id);
+        this.setState({ following: newFollowing });
+        removeCityHandle(id);
+    }
+
     render() {
         return (
             <Layout>
-                {'weather' in this.state.currentWeather ?
+                {Object.keys(this.state.currentWeather).length > 0 ?
                     <CityCard weather={this.state.currentWeather} current />
                     :
                     this.state.error ?
@@ -55,11 +83,23 @@ class Home extends React.Component {
                         :
                         <Loading />
                 }
-                <CityCard weather={{ "coord": { "lon": -74.01, "lat": 40.71 }, "weather": [{ "id": 800, "main": "Clear", "description": "clear sky", "icon": "01d" }], "base": "stations", "main": { "temp": 279.2, "feels_like": 271.38, "temp_min": 277.59, "temp_max": 280.93, "pressure": 1019, "humidity": 28 }, "visibility": 16093, "wind": { "speed": 6.7, "deg": 310, "gust": 10.8 }, "clouds": { "all": 1 }, "dt": 1583095415, "sys": { "type": 1, "id": 4686, "country": "US", "sunrise": 1583062166, "sunset": 1583102848 }, "timezone": -18000, "id": 5128581, "name": "New York", "cod": 200 }} />
+                {Object.keys(this.state.following).length > 0 ?
+                    this.state.following.map(weather => (
+                        <CityCard weather={weather} key={weather.cityId} removeHandle={this.removeHandle} />
+                    ))
+                    :
+                    null
+                }
 
             </Layout>
         );
     }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        cities: state.cities || []
+    }
+}
+
+export default connect(mapStateToProps)(Home);

@@ -9,8 +9,8 @@ import './_styles.css';
  * @param {Element} children 
  */
 
-const Button = ({ clickHandle, children }) => (
-    <button className="btn" onClick={clickHandle}>
+const Button = ({ clickHandle, children, className }) => (
+    <button className={`btn ${className}`} onClick={clickHandle}>
         {children}
     </button>
 );

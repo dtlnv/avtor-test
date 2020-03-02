@@ -12,7 +12,7 @@ const Menu = () => (
     <nav>
         <ul>
             <MenuItem title="Home" link="/" />
-            <MenuItem title="Cities" link="/cities" />
+            <MenuItem title="Add City" link="/cities" />
             <MenuItem title="News" link="/news" />
             <FormatSelect />
         </ul>

@@ -14,6 +14,9 @@ export const WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/weather/?
 // weather api icon
 export const WIcon = (icon) => `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
+// cities api
+export const CITIES_API_URL = `http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&sort=name%2CcountryCode&hateoasMode=false`; // region/europe
+
 // website name
 export const projectName = 'Weather';
 
