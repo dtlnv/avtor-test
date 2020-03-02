@@ -9,10 +9,8 @@ import { projectName } from '../../utils/constants';
  */
 
 const Logo = () => (
-    <Link to="/">
-        <div className="logo">
-            {projectName}
-        </div>
+    <Link to="/" className="logo">
+        {projectName}
     </Link>
 );
 

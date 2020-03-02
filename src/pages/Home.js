@@ -6,14 +6,13 @@ import Error from '../components/Error';
 import Loading from '../components/Loading';
 import CityCard from '../components/CityCard';
 import { connect } from 'react-redux';
-import { citiesSort } from '../utils/functions';
 import { removeCityHandle } from '../utils/globalStorage';
 
 class Home extends React.Component {
 
     static getCityWeather = async (position, callback) => {
         try {
-            const url = `${WEATHER_API_URL}&lat=${position.lat}&lon=${position.lon}`;
+            const url = `${WEATHER_API_URL}&q=${position}`;
             callback(null, (await Axios.get(url)).data)
         } catch (e) {
             callback(e);
@@ -58,8 +57,9 @@ class Home extends React.Component {
         });
 
         if (this.props.cities.length > 0) {
-            this.props.cities.sort(citiesSort).forEach(city => {
-                Home.getCityWeather({lat: city.lat, lon: city.lon}, (err, weather) => {
+            this.props.cities.forEach(city => {
+                Home.getCityWeather(city.name, (err, weather) => {
+                    console.log(weather)
                     this.setState({ following: [...this.state.following, { cityId: city.id, ...weather }] })
                 })
             })

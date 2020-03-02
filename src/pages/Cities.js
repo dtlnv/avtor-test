@@ -9,8 +9,8 @@ class Cities extends React.Component {
 
     static getCities = async (prefix, callback) => {
         try {
-            const url = `${CITIES_API_URL}&namePrefix=${prefix}`;
-            const data = (await Axios.get(url)).data;
+            const url = `${CITIES_API_URL}&q=${prefix}`;
+            const data = (await Axios.get(url)).data.results;
             callback(null, data)
         } catch (e) {
             callback(e)
@@ -26,16 +26,19 @@ class Cities extends React.Component {
     }
 
     searchHandle = e => {
-        Cities.getCities(e.target.value, (err, list) => {
-            if (err) {
-                this.setState({ error: true });
-            } else {
-                this.setState({ list: list.data });
-            }
-        });
+        if (e.target.value.length > 2) {
+            Cities.getCities(e.target.value, (err, list) => {
+                if (err) {
+                    this.setState({ error: true });
+                } else {
+                    this.setState({ list });
+                }
+            });
+        }
     }
 
     render() {
+        console.log(this.state.list)
         return (
             <Layout>
                 <SearchCity searchHandle={this.searchHandle} />

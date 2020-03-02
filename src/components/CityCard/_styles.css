@@ -1,14 +1,28 @@
 .city {
     color: #fff;
     width: 100%;
-    margin-bottom: 10px;
-    padding: 30px;
+    margin-bottom: 10vh;
     display: flex;
+    height: 90vh;
+    min-height: 300px;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
     backdrop-filter: brightness(60%);
     backdrop-filter: drop-shadow(4px 4px 10px blue);
+    overflow: hidden;
+}
+
+.city::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: .86;
 }
 
 .city:last-child {
@@ -19,11 +33,30 @@
     display: block;
 }
 
+.city iframe {
+    border: 0px;
+    width: 100%;
+    position: absolute;
+    z-index: -3;
+    left: 0;
+    height: 90vh;
+    min-height: 300px;
+}
+
+.city .content {
+    position: relative;
+    z-index: 2;
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 .removeCity {
     position: absolute;
     top: 20px;
     right: 20px;
     display: none;
+    z-index: 2;
 }
 
 .removeCity:hover {
@@ -34,17 +67,17 @@
 .city h2 {
     margin: 0px;
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .city h2 i {
-    font-size: 25px;
+    font-size: 30px;
     margin-right: 10px;
 }
 
 .city h3 {
     margin: 0px;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .temperature {
@@ -56,8 +89,9 @@
 
 .temperature img {
     width: 50px;
-    margin: 0px 10px;
+    margin: 0px 20px;
     border-radius: 100px;
+    background-color: #888;
 }
 
 small {
@@ -71,7 +105,7 @@ small {
 }
 
 dt {
-    text-transform: lowercase;
+    text-transform: uppercase;
     font-size: 15px;
 }
 
@@ -82,98 +116,98 @@ dd {
     font-weight: 900;
 }
 
-.hour-1 {
+.hour-1::before {
     background-color: #1c2152;
 }
 
-.hour-2 {
+.hour-2::before {
     background-color: #2a327a;
 }
 
-.hour-3 {
+.hour-3::before {
     background-color: #313986;
 }
 
-.hour-4 {
+.hour-4::before {
     background-color: #3a44a3;
 }
 
-.hour-5 {
+.hour-5::before {
     background-color: #4450be;
 }
 
-.hour-6 {
+.hour-6::before {
     background-color: #4e5cda;
 }
 
-.hour-7 {
+.hour-7::before {
     background-color: #5565ee;
 }
 
-.hour-8 {
+.hour-8::before {
     background-color: #6675f7;
 }
 
-.hour-9 {
+.hour-9::before {
     background-color: #818dff;
 }
 
-.hour-10 {
+.hour-10::before {
     background-color: #8691f0;
 }
 
-.hour-11 {
+.hour-11::before {
     background-color: #a4acf5;
 }
 
-.hour-12 {
+.hour-12::before {
     background-color: #a3a9e6;
 }
 
-.hour-13 {
+.hour-13::before {
     background-color: #9096d8;
 }
 
-.hour-14 {
+.hour-14::before {
     background-color: #858bc9;
 }
 
-.hour-15 {
+.hour-15::before {
     background-color: #7378b4;
 }
 
-.hour-16 {
+.hour-16::before {
     background-color: #656aa3;
 }
 
-.hour-17 {
+.hour-17::before {
     background-color: #585d92;
 }
 
-.hour-18 {
+.hour-18::before {
     background-color: #4d5181;
 }
 
-.hour-19 {
+.hour-19::before {
     background-color: #424672;
 }
 
-.hour-20 {
+.hour-20::before {
     background-color: #383c63;
 }
 
-.hour-21 {
+.hour-21::before {
     background-color: #303458;
 }
 
-.hour-22 {
+.hour-22:before {
     background-color: #252949;
 }
 
-.hour-23 {
+.hour-23::before {
     background-color: #1b1f3d;
 }
 
-.hour-0 {
+.hour-0::before {
     background-color: #1c2152;
 }

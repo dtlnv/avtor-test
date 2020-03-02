@@ -1,6 +1,7 @@
 .cityInSearch {
     display: flex;
     width: 600px;
+    max-width: 98vw;
     align-items: center;
     justify-content: space-between;
     padding: 20px 10px;
@@ -12,4 +13,6 @@
 
 .cityInSearch h2 {
     margin: 0px;
+    margin-right: 10px;
+    font-size: 20px;
 }

@@ -3,12 +3,12 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 10px 0px;
+    background: #1c1c1d;
+    box-shadow: #999 0px 0px 20px;
 }
 
 #container {
-    margin: 10px auto;
-    width: 800px;
-    max-width: 96%;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
     align-items: center;

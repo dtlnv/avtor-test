@@ -1,7 +1,8 @@
 import React from 'react';
-import './_styles.css';
 import Button from '../Button';
+import PropTypes from 'prop-types';
 import { addCityHandle, removeCityHandle } from '../../utils/globalStorage';
+import './_styles.css';
 
 /**
  * @name City
@@ -13,17 +14,18 @@ import { addCityHandle, removeCityHandle } from '../../utils/globalStorage';
 const City = ({ city, following }) => {
 
     const addHandle = () => {
-        addCityHandle({ id: city.id, lat: city.latitude, lon: city.longitude });
+        addCityHandle({ id: city.annotations.geohash, name: city.formatted });
     }
+    
     const removeHandle = () => {
-        removeCityHandle(city.id);
+        removeCityHandle(city.annotations.geohash);
     }
 
     return (
         <div className="cityInSearch">
             <div>
                 <h2>
-                    {city.name}
+                    {city.formatted}
                 </h2>
                 <small>{city.country}</small>
             </div>
@@ -38,4 +40,10 @@ const City = ({ city, following }) => {
         </div>
     );
 }
+
+City.propTypes = {
+    city: PropTypes.object.isRequired,
+    following: PropTypes.bool
+}
+
 export default City;

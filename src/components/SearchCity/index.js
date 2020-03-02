@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './_styles.css';
 
 /**
@@ -8,7 +9,11 @@ import './_styles.css';
  */
 
 const SearchCity = ({ searchHandle }) => (
-    <input type="text" className="searchInput" onChange={searchHandle} placeholder="Type the city name" />
+    <input type="text" className="searchInput" onChange={searchHandle} placeholder="Type here the city name" />
 );
+
+SearchCity.propTypes = {
+    searchHandle: PropTypes.func
+}
 
 export default SearchCity;

@@ -1,7 +1,8 @@
 import React from 'react';
-import './_styles.css';
+import PropTypes from 'prop-types';
 import City from './city';
 import { useSelector } from 'react-redux';
+import './_styles.css';
 
 /**
  * @name SearchList
@@ -14,9 +15,13 @@ const SearchList = ({ list }) => {
     return (
         list.length > 0 ?
             list.map(((city, index) =>
-                <City city={city} key={index} following={cities.filter(following => following.id === city.id).length > 0} />
+                <City city={city} key={index} following={cities.filter(following => following.id === city.annotations.geohash).length > 0} />
             )) : null
     );
+}
+
+SearchList.propTypes = {
+    list: PropTypes.array
 }
 
 export default SearchList;

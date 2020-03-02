@@ -1,11 +1,12 @@
-/* @import url('reset.css'); */
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,900&display=swap');
+* {
+    font-family: 'Nunito Sans';
+}
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* background-color: #fbfbfb; */
     color: #2e2e30;
 }
 
