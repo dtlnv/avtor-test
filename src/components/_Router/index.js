@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from '../../pages/home'
-import Cities from '../../pages/cities';
-import News from '../../pages/news';
+import Home from '../../pages/Home'
+import Cities from '../../pages/Cities';
+import News from '../../pages/News';
 import _404 from '../../pages/_404';
 
 /**
