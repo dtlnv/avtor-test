@@ -24,7 +24,7 @@ const CityCard = ({ weather, current = false, removeHandle = () => { } }) => {
         return (
             <div className={`city center hour-${parseInt(data.cityTime)}`}>
                 <iframe title={data.city} src={`${CITIES_API_URL_MAP}&q=${data.position.lat},${data.position.lon}`} className="map" />
-                {!current ? <div className="removeCity" onClick={() => removeHandle(weather.cityId)}><i className="fas fa-times"></i></div> : ''}
+                {!current ? <div className="removeCity" title="Unfollow" onClick={() => removeHandle(weather.cityId)}><i className="fas fa-times"></i></div> : ''}
                 <div className="content">
                     <h2>{current ? <i className="fas fa-location-arrow"></i> : ""} {data.city}, {data.countryCode}</h2>
                     <div className="temperature">
