@@ -15,3 +15,11 @@
 - - components - Компоненты. Каждый находится в отдельной папке, стили прописаны в файле _styles.css
 - - pages - Страницы. Названия совпадают с маршрутами в react-router. В них прописана бизнес-логика.
 - - utils - Вспомогательные инструменты - константы, функции, redux и хранилище. 
+
+## Проверка
+
+`git clone https://github.com/dmitritelnov/avtor-test.git` <br/>
+`cd avtor-test` <br/>
+`npm install` <br/>
+`npm start` <br/>
+Открыть http://localhost:3999/
