@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../Common/UI";
 import PropTypes from "prop-types";
-import { useSaveCity } from "../../../utils/hooks";
+import { useAddCity, useRemoveCity } from "../../../utils/hooks";
 import "./_styles.scss";
 
 /**
@@ -12,17 +12,23 @@ import "./_styles.scss";
  */
 
 const City = ({ city, following }) => {
-  const save = useSaveCity();
+  const [add, remove] = [useAddCity(), useRemoveCity()];
 
   const clickAction = (toFollow) => {
-    save({ id: city.annotations.geohash, name: city.formatted }, toFollow ? "add" : "remove");
+    if (toFollow) {
+      add({ id: city.annotations.geohash, name: city.formatted });
+    } else {
+      remove(city.annotations.geohash);
+    }
   };
 
   return city.formatted ? (
-    <div className="city_in_search">
-      <div className="city_name">{city.formatted}</div>
+    <div className="city-in-search">
+      <div className="city-name">{city.formatted}</div>
       <div className="details">
-        <Button onClick={() => clickAction(!following)} className={following ? "red" : ""}>
+        <Button
+          onClick={() => clickAction(!following)}
+          className={`add-city-button ${following ? "red" : ""}`}>
           {following ? "Unfollow" : "Follow"}
         </Button>
       </div>

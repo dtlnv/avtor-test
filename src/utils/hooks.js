@@ -31,25 +31,40 @@ export const useSaveFormat = () => {
 }
 
 /**
- * @name useSaveCity
+ * @name useAddCity
  * @description Append new city for following to the storage or remove city from the storage
  * @param {string} city 
  * @param {enum} action - [add, remove]
  */
-export const useSaveCity = () => {
+export const useAddCity = () => {
     const dispatch = useDispatch();
 
-    return (city, action) => {
+    return (city) => {
         let citiesList = JSON.parse(STORAGE.getItem('cities') || '[]');
 
-        if (action === 'add') {
-            if (!citiesList.find(savedCity => savedCity.id === city.id)) {
-                citiesList.push(city);
-            }
-        } else {
-            if (citiesList.find(savedCity => savedCity.id === city.id)) {
-                citiesList = citiesList.filter(savedCity => savedCity.id !== city.id);
-            }
+        if (!citiesList.find(savedCity => savedCity.id === city.id)) {
+            citiesList.push(city);
+        }
+
+        dispatch(setCities(citiesList));
+        STORAGE.setItem('cities', JSON.stringify(citiesList));
+    }
+}
+
+/**
+ * @name useRemoveCity
+ * @description Append new city for following to the storage or remove city from the storage
+ * @param {string} cityId 
+ * @param {enum} action - [add, remove]
+ */
+export const useRemoveCity = () => {
+    const dispatch = useDispatch();
+
+    return (cityId) => {
+        let citiesList = JSON.parse(STORAGE.getItem('cities') || '[]');
+
+        if (citiesList.find(savedCity => savedCity.id === cityId)) {
+            citiesList = citiesList.filter(savedCity => savedCity.id !== cityId);
         }
 
         dispatch(setCities(citiesList));

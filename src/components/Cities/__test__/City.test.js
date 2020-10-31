@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import TestAppWrapper from '../../../../system/App/test';
-import City from '../City';
-import { setCities, store } from '../../../../utils/reducer';
+import TestAppWrapper from '../../../system/App/test';
+import City from '../List/City';
+import { setCities, store } from '../../../utils/reducer';
 import userEvent from '@testing-library/user-event';
 
 const dummyCity = {
@@ -20,13 +20,13 @@ describe('City in list test', () => {
     it('Render without data', () => {
         const { container } = render(<TestAppWrapper><City city={{}} /></TestAppWrapper>);
 
-        expect(container.querySelector('.city_name')).toBeNull();
+        expect(container.querySelector('.city-name')).toBeNull();
     });
 
     it('Correct city name rendering', () => {
         const { container } = render(<TestAppWrapper><City city={dummyCity} /></TestAppWrapper>);
 
-        expect(container.querySelector('.city_name').textContent).toBe(dummyCity.formatted);
+        expect(container.querySelector('.city-name').textContent).toBe(dummyCity.formatted);
     });
 
     it('Add city to redux store', () => {

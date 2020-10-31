@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import NewsList from '../NewsList';
+import NewsList from '../List/NewsList';
 
 const dummyList = [{
     title: 'Title',
