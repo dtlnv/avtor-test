@@ -6,9 +6,7 @@ const initialState = {
 }
 
 const SET_FORMAT = 'SET_FORMAT';
-const ADD_CITY = 'ADD_CITY';
-const REMOVE_CITY = 'REMOVE_CITY';
-const SYNC_CITIES = 'SYNC_CITIES';
+const SET_CITIES = 'SET_CITIES';
 
 const mainReducer = (state = initialState, { type, payload }) => {
     switch (type) {
@@ -17,20 +15,10 @@ const mainReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 format: payload
             }
-        case SYNC_CITIES:
+        case SET_CITIES:
             return {
                 ...state,
                 cities: payload
-            }
-        case ADD_CITY:
-            return {
-                ...state,
-                cities: state.cities ? [...state.cities, payload] : [payload]
-            }
-        case REMOVE_CITY:
-            return {
-                ...state,
-                cities: state.cities.filter(city => city.id !== payload)
             }
         default:
             return state;
@@ -46,23 +34,9 @@ export const setFormat = (payload) => {
     }
 };
 
-export const syncCities = (payload) => {
+export const setCities = (payload) => {
     return {
-        type: SYNC_CITIES,
-        payload
-    }
-};
-
-export const addCity = (payload) => {
-    return {
-        type: ADD_CITY,
-        payload
-    }
-};
-
-export const removeCity = (payload) => {
-    return {
-        type: REMOVE_CITY,
+        type: SET_CITIES,
         payload
     }
 };

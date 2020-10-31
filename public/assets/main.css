@@ -12,11 +12,10 @@ body {
 
 a {
     text-decoration: none;
-    color: #2f9ae3;
 }
 
 a:hover {
-    color: #2271a5 !important;
+    /* color: #2271a5 !important; */
 }
 
 .center {

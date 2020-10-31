@@ -1,0 +1,36 @@
+@import "../../../utils/constants.scss";
+
+.news_list {
+  h1 {
+    text-align: center;
+  }
+  article {
+    width: 500px;
+    max-width: 98vw;
+    margin: 0px auto;
+    padding-bottom: 30px ;
+    border-bottom: 1px solid #ddd;
+    &:last-child {
+      border-bottom: 0px;
+    }
+    h2 {
+      color: $MainColor;
+      &:hover {
+        color: #333;
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+    .description {
+      font-size: 15px;
+      line-height: 19px;
+      margin: 10px 0px;
+    }
+    .time {
+      font-size: 15px;
+      line-height: 19px;
+      margin: 10px 0px;
+    }
+  }
+}

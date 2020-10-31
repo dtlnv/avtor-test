@@ -1,0 +1,21 @@
+.cities_list {
+  margin-top: 30px;
+  .city_in_search {
+    display: flex;
+    width: 600px;
+    max-width: 98vw;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+
+    &:hover {
+      background: #f9f9f9;
+    }
+
+    .city_name {
+      margin: 0px;
+      margin-right: 10px;
+      font-size: 20px;
+    }
+  }
+}

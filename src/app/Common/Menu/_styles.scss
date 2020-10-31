@@ -1,0 +1,21 @@
+@import "../../../utils/constants.scss";
+
+.menu {
+  ul {
+    li {
+      display: inline;
+      padding: 5px 10px;
+      a {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        &.active {
+          color: $MainColor;
+        }
+        @media (max-width: 700px) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

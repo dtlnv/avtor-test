@@ -1,0 +1,27 @@
+@import "../../../../utils/constants.scss";
+
+.btn {
+  -webkit-appearance: none;
+  padding: 10px 30px;
+  border: 0px;
+  background-color: $MainColor;
+  border-radius: 100px;
+  color: #f9f9f9;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 0 0 10px #999;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  &:active {
+    box-shadow: none;
+  }
+  &.red {
+    background-color: $DangerColor;
+    :hover {
+      background-color: $DangerColor;
+    }
+  }
+}

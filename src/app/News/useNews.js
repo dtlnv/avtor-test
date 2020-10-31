@@ -1,0 +1,42 @@
+import { useState, useEffect } from "react";
+import Axios from "axios";
+import { NEWS_API_URL, POSTS_COUNT } from "../../utils/constants";
+
+const useNews = () => {
+    const [newsList, setNewsList] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [gettingMore, setGettingMore] = useState(true);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        async function getNews(page = 0) {
+            try {
+                setLoading(true);
+
+                const response = (
+                    await Axios.get(
+                        `${NEWS_API_URL}&country=us&pageSize=${POSTS_COUNT}&page=${page}`
+                    )
+                ).data;
+
+                setNewsList((prev) => {
+                    const newList = [...prev, ...response.articles];
+                    if (response.totalResults === newList.length) {
+                        setGettingMore(false);
+                    }
+                    return newList;
+                });
+            } catch (e) {
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        }
+        getNews(currentPage);
+    }, [currentPage]);
+
+    return { newsList, loading, setCurrentPage, gettingMore, error };
+};
+
+export default useNews;

@@ -7,8 +7,12 @@ import { WIcon } from "./constants";
  */
 export function datetime(paramdate) {
     try {
-        const date = new Date(paramdate);
-        return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) + ", " + date.toLocaleTimeString([], { timeStyle: 'short' });
+        if (paramdate) {
+            const date = new Date(paramdate);
+            return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) + ", " + date.toLocaleTimeString([], { timeStyle: 'short' });
+        } else {
+            return '';
+        }
     } catch {
         return '';
     }
