@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from '../Menu';
 import Logo from '../Logo';
-import { projectName } from '../../../utils/constants';
+import { PROJECT_NAME } from '../../../utils/constants';
 import './_styles.scss'; 
 
 /**
@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
             {children}
         </section>
         <footer>
-            &copy; {(new Date()).getFullYear()} {projectName} by dtelnov
+            &copy; {(new Date()).getFullYear()} {PROJECT_NAME} by dtelnov
         </footer>
     </>
 );

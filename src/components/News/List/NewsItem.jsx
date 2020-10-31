@@ -10,7 +10,7 @@ import { datetime } from "../../../utils/functions";
 
 const NewsItem = ({ post }) =>
   Object.keys(post).length > 0 ? (
-    <article className="news_post">
+    <article className="news-post">
       <a href={post.url} target="_blank" rel="noopener noreferrer">
         <h2 className="title">{post.title}</h2>
       </a>

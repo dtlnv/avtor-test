@@ -2,6 +2,13 @@ import { useState, useEffect } from "react";
 import Axios from "axios";
 import { CITIES_API_URL } from "../../utils/constants";
 
+/**
+ * @name useCities
+ * @description Returns cities by search query
+ * @returns {object} list - cities array;
+ *                   setSearch - function to change search query;
+ *                   error - boolean of error state
+ */
 const useCities = () => {
     const [list, setList] = useState([]);
     const [search, setSearch] = useState("");

@@ -4,14 +4,14 @@ const { store, setFormat, setCities } = require('./reducer');
 
 /**
  * @name useAppSync
- * @description Add data from the Storage to Redux
+ * @description Add data from the Storage to Reducer
  */
 export function useAppSync() {
-    // sync format between storage and redux
+    // sync format between storage and reducer
     const format = STORAGE.getItem('format');
     store.dispatch(setFormat(format));
 
-    // sync cities between storage and redux
+    // sync cities between storage and reducer
     const cities = STORAGE.getItem('cities');
     store.dispatch(setCities(JSON.parse(cities || '[]')));
 }
@@ -32,9 +32,8 @@ export const useSaveFormat = () => {
 
 /**
  * @name useAddCity
- * @description Append new city for following to the storage or remove city from the storage
- * @param {string} city 
- * @param {enum} action - [add, remove]
+ * @description Add a new city for following to the storage 
+ * @param {object} city 
  */
 export const useAddCity = () => {
     const dispatch = useDispatch();
@@ -53,9 +52,8 @@ export const useAddCity = () => {
 
 /**
  * @name useRemoveCity
- * @description Append new city for following to the storage or remove city from the storage
- * @param {string} cityId 
- * @param {enum} action - [add, remove]
+ * @description Remove city from the storage
+ * @param {number} cityId 
  */
 export const useRemoveCity = () => {
     const dispatch = useDispatch();

@@ -14,7 +14,7 @@ const CitiesList = ({ list = [] }) => {
   const cities = useSelector((store) => store.cities) || [];
 
   return (
-    <div className="cities_list">
+    <div className="cities-list">
       {list.map((city, index) => (
         <City
           key={index}

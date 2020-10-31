@@ -16,7 +16,7 @@ describe('News Item test', () => {
     it('Render without data', () => {
         const { container } = render(<NewsItem post={{}} />);
 
-        expect(container.querySelector('.news_post')).toBeNull();
+        expect(container.querySelector('.news-post')).toBeNull();
     });
 
     it('Correct render', () => {
@@ -24,7 +24,7 @@ describe('News Item test', () => {
 
         expect(container.querySelector('.title').textContent).toBe(dummyPost.title);
         expect(container.querySelector('.time').textContent).toBe('October 30, 17:42');
-        expect(container.querySelector('.news_post a').getAttribute('href')).toBe(dummyPost.url);
+        expect(container.querySelector('.news-post a').getAttribute('href')).toBe(dummyPost.url);
         expect(container.querySelector('.description').textContent).toBe(dummyPost.description);
         expect(container.querySelector('.image img').getAttribute('src')).toBe(dummyPost.urlToImage);
     });

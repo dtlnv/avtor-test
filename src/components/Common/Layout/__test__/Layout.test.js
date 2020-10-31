@@ -9,6 +9,8 @@ describe('Layout test', () => {
     it('Correct children render', () => {
         const { container } = render(<TestAppWrapper><Layout>Test</Layout></TestAppWrapper>);
 
+        expect(container.querySelector('header')).not.toBeNull();
+        expect(container.querySelector('footer')).not.toBeNull();
         expect(container.querySelector('#container').textContent).toBe('Test');
     });
 

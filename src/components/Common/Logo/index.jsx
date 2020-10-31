@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { projectName } from '../../../utils/constants';
+import { PROJECT_NAME } from '../../../utils/constants';
 import './_styles.scss';
 
 /**
@@ -10,7 +10,7 @@ import './_styles.scss';
 
 const Logo = () => (
     <Link to="/" className="logo">
-        {projectName}
+        {PROJECT_NAME}
     </Link>
 );
 

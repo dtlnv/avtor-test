@@ -3,6 +3,12 @@ import { WEATHER_API_URL } from "../../utils/constants";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 
+/**
+ * @name useWeather
+ * @description Returns current city and following cities weather data
+ * @returns {object} currentCity - weather of the current city (if user allows using geolocation);
+ *                   followingCities - array with weather data of the following cities;
+ */
 const useWeather = () => {
   const [currentCity, setCurrentCity] = useState({});
   const [followingCities, setFollowingCities] = useState([]);

@@ -23,25 +23,25 @@ describe('News list test', () => {
         const { getByText, container } = render(<NewsList list={[]} />);
 
         expect(getByText('News')).toBeTruthy();
-        expect(container.querySelectorAll('.news_post').length).toBe(0);
+        expect(container.querySelectorAll('.news-post').length).toBe(0);
     });
 
     it('Renders with list', () => {
         const { getByText, container } = render(<NewsList list={dummyList} />);
 
         expect(getByText('News')).toBeTruthy();
-        expect(container.querySelectorAll('.news_post').length).toBe(dummyList.length);
+        expect(container.querySelectorAll('.news-post').length).toBe(dummyList.length);
     });
 
     it('Renders correct list', () => {
         const { container } = render(<NewsList list={dummyList} />);
 
         for (let i = 0; i < dummyList.length; i++) {
-            expect(container.querySelectorAll('.news_post .title')[i].textContent).toBe(dummyList[i].title);
-            expect(container.querySelectorAll('.news_post .description')[i].textContent).toBe(dummyList[i].description);
-            expect(container.querySelectorAll('.news_post .time')[i].textContent).toBe('October 30, 17:42');
-            expect(container.querySelectorAll('.news_post a')[i].getAttribute('href')).toBe(dummyList[i].url);
-            expect(container.querySelectorAll('.news_post img')[i].getAttribute('src')).toBe(dummyList[i].urlToImage);
+            expect(container.querySelectorAll('.news-post .title')[i].textContent).toBe(dummyList[i].title);
+            expect(container.querySelectorAll('.news-post .description')[i].textContent).toBe(dummyList[i].description);
+            expect(container.querySelectorAll('.news-post .time')[i].textContent).toBe('October 30, 17:42');
+            expect(container.querySelectorAll('.news-post a')[i].getAttribute('href')).toBe(dummyList[i].url);
+            expect(container.querySelectorAll('.news-post img')[i].getAttribute('src')).toBe(dummyList[i].urlToImage);
         }
     });
 

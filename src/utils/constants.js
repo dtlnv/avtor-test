@@ -12,7 +12,7 @@ const CITIES_API_KEY = 'f309a09253474c40b2db3552a9bcfaca';
 export const CITIES_API_URL = `https://api.opencagedata.com/geocode/v1/json?language=en&_type=city&key=${CITIES_API_KEY}`;
 
 // website name
-export const projectName = 'Weather';
+export const PROJECT_NAME = 'Weather';
 
 // news posts count
 export const POSTS_COUNT = 10;

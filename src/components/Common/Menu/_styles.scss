@@ -9,6 +9,10 @@
         font-weight: bold;
         text-transform: uppercase;
         color: #fff;
+        &:hover {
+          color: $MainColor;
+          opacity: .8;
+        }
         &.active {
           color: $MainColor;
         }

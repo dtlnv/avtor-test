@@ -2,8 +2,9 @@ import { WIcon } from "./constants";
 
 /**
  * @name datetime
- * @description make readable time string for news
+ * @description Make readable time string for news
  * @param {string} paramdate 
+ * @returns {string} Date string
  */
 export function datetime(paramdate) {
     try {
@@ -20,9 +21,10 @@ export function datetime(paramdate) {
 
 /**
  * @name formated
- * @description formating weather data based on format
+ * @description Formating weather data based on format
  * @param {object} weather 
  * @param {string} format 
+ * @returns {object} Weather data
  */
 export function formated(weather, format) {
 

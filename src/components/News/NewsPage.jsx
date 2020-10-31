@@ -5,6 +5,10 @@ import { Button, Loading } from "../Common/UI";
 import useNews from "./useNews";
 import Error from "../Common/Error";
 
+/**
+ * @name NewsPage
+ * @description Renders /news page
+ */
 const NewsPage = () => {
   const { newsList, loading, setCurrentPage, gettingMore, error } = useNews();
 

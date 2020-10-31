@@ -4,13 +4,16 @@ import { Loading } from "../Common/UI";
 import CityCard from "./CityCard";
 import useWeather from "./useWeather";
 
+/**
+ * @name HomePage
+ * @description Renders / page
+ */
 const HomePage = () => {
   const { currentCity, followingCities } = useWeather();
 
   return (
     <Layout>
-      <div className="weather_list">
-      <CityCard city={{cityId: 0, name: 'test'}} />
+      <div className="weather-list">
         {Object.keys(currentCity).length > 0 ? (
           <CityCard city={currentCity} current />
         ) : (

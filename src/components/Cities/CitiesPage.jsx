@@ -5,6 +5,10 @@ import { Input } from "../Common/UI";
 import CitiesList from "./List";
 import useCities from "./useCities";
 
+/**
+ * @name CitiesPage
+ * @description Renders /cities page
+ */
 const CitiesPage = () => {
   const { list, setSearch, error } = useCities();
 

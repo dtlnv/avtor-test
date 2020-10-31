@@ -8,7 +8,7 @@ import "./_styles.scss";
  * @description Print select element with metric formats:
  * metric - Celsius
  * imperial - Fahrenheit
- * Change reducer when changing metric
+ * onChange - set new metric to reducer
  */
 
 const FormatSelect = () => {
