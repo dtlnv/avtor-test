@@ -4,10 +4,9 @@ import { datetime } from "../../../utils/functions";
 
 /**
  * @name NewsItem
- * @description Print one news post
+ * @description Renders one news post
  * @param {object} post
  */
-
 const NewsItem = ({ post }) =>
   Object.keys(post).length > 0 ? (
     <article className="news-post">
@@ -20,9 +19,7 @@ const NewsItem = ({ post }) =>
           <img src={post.urlToImage} alt={post.title} />
         </div>
       )}
-      {post.description && (
-        <div className="description">{post.description}</div>
-      )}
+      {post.description && <div className="description">{post.description}</div>}
     </article>
   ) : null;
 

@@ -8,11 +8,10 @@ import { useRemoveCity } from "../../../utils/hooks";
 
 /**
  * @name CityCard
- * @description Print city card based on the received data
+ * @description Renders city card based on the received data
  * @param {object} city - city data from api
- * @param {boolean} current - if current city - print location icon
+ * @param {boolean} current - if current city - display location icon
  */
-
 const CityCard = ({ city, current = false }) => {
   const [weather, setWeather] = useState(null);
   const format = useSelector((state) => state.format);

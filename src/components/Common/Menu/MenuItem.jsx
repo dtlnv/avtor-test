@@ -4,18 +4,15 @@ import { Link } from "react-router-dom";
 
 /**
  * @name MenuItem
- * @description Print one menu item based on received data
+ * @description Renders the menu item based on received data
  * @param {string} title
  * @param {string} link
  */
-
 const MenuItem = ({ title = "", link = "" }) =>
   title &&
   link && (
     <li>
-      <Link
-        to={link}
-        className={document.location.pathname === link ? "active" : ""}>
+      <Link to={link} className={document.location.pathname === link ? "active" : ""}>
         {title}
       </Link>
     </li>

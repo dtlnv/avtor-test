@@ -5,10 +5,9 @@ import "./_styles.scss";
 
 /**
  * @name NewsList
- * @description Print list of the news based on received list
+ * @description Renders list of the news based on received list
  * @param {array} list
  */
-
 const NewsList = ({ list = [] }) => (
   <div className="news-list">
     <h1>News</h1>

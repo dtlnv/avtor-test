@@ -6,11 +6,10 @@ import "./_styles.scss";
 
 /**
  * @name City
- * @description Print the city in the search
+ * @description Renders the city in the search
  * @param {object} city
  * @param {boolean} following
  */
-
 const City = ({ city, following }) => {
   const [add, remove] = [useAddCity(), useRemoveCity()];
 

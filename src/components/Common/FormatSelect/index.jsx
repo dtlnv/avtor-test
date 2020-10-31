@@ -5,12 +5,12 @@ import "./_styles.scss";
 
 /**
  * @name FormatSelect
- * @description Print select element with metric formats:
+ * @description Renders the select element with metric formats:
  * metric - Celsius
  * imperial - Fahrenheit
+ * 
  * onChange - set new metric to reducer
  */
-
 const FormatSelect = () => {
   const currentFormat = useSelector((state) => state.format);
   const changeFormat = useSaveFormat();
@@ -20,10 +20,7 @@ const FormatSelect = () => {
   };
 
   return (
-    <select
-      className="formatSelect"
-      onChange={changeFormatHandle}
-      defaultValue={currentFormat}>
+    <select className="formatSelect" onChange={changeFormatHandle} defaultValue={currentFormat}>
       <option value="metric">°C</option>
       <option value="imperial">°F</option>
     </select>

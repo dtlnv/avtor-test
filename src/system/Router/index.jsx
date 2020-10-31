@@ -10,7 +10,6 @@ import Page404 from "../../components/Page404";
  * @name Router
  * @description Building routing system
  */
-
 const Router = () => (
   <BrowserRouter>
     <Switch>

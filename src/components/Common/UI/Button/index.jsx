@@ -1,23 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './_styles.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./_styles.scss";
 
 /**
  * @name Button
- * @description Print button with external handler
- * @param {Element} children 
+ * @description Renders the custom button
+ * @param {any} children
  * @param {string} className
+ * @param {any} props - any of the button attributes
  */
-
-const Button = ({ children, className = '', ...rest }) => (
-    <button className={`btn ${className}`} {...rest}>
-        {children}
-    </button>
+const Button = ({ children, className = "", ...props }) => (
+  <button className={`btn ${className}`} {...props}>
+    {children}
+  </button>
 );
 
 Button.propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string
-}
+  children: PropTypes.any,
+  className: PropTypes.string,
+};
 
 export default Button;

@@ -1,6 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * @name Error
+ * @description Renders the error block
+ * @param {string} title 
+ * @param {string} children
+ */
 const Error = ({ title = "Ooops.", children = "Something went wrong" }) => (
   <div className="center">
     <h1>{title}</h1>

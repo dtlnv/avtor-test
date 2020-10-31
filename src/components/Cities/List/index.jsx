@@ -6,10 +6,9 @@ import "./_styles.scss";
 
 /**
  * @name CitiesList
- * @description Print searched list of the cities
+ * @description Renders searched list of the cities
  * @param {array} list
  */
-
 const CitiesList = ({ list = [] }) => {
   const cities = useSelector((store) => store.cities) || [];
 
