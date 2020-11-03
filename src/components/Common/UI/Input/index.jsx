@@ -6,7 +6,7 @@ import "./_styles.scss";
  * @name Input
  * @description Renders the custom input
  * @param {string} type
- * @param {any} rest - any of the button attributes
+ * @param {any} rest - any of the input attributes
  */
 const Input = ({ type = "text", ...props }) => <input type={type} className="input" {...props} />;
 

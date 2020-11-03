@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
  * @name Error
  * @description Renders the error block
  * @param {string} title 
- * @param {string} children
+ * @param {any} children
  */
 const Error = ({ title = "Ooops.", children = "Something went wrong" }) => (
   <div className="center">
@@ -16,7 +16,7 @@ const Error = ({ title = "Ooops.", children = "Something went wrong" }) => (
 
 Error.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.any,
 };
 
 export default Error;

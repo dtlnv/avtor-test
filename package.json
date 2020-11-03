@@ -15,8 +15,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "react-test-renderer": "^17.0.1",
-    "redux": "^4.0.5",
-    "use-position": "0.0.6"
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "PORT=3999 react-scripts start",
