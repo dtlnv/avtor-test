@@ -62,25 +62,29 @@ export function formated(weather, format) {
         }
     }
 
-    return {
-        city: weather.name,
-        countryCode: weather?.sys?.country,
-        temperature: temparature(weather?.main?.temp, format),
-        icon: WIcon(weather.weather ? weather.weather[0]?.icon : null),
-        description: weather.weather ? weather.weather[0]?.description : null,
-        wind: speed(weather?.wind?.speed, format),
-        pressure: weather?.main?.pressure,
-        humidity: weather?.main?.humidity,
-        sunrise: time(weather?.sys?.sunrise, weather?.timezone),
-        sunset: time(weather?.sys?.sunset, weather?.timezone),
-        cityTime: cityTime(weather.timezone),
-        position: {
-            lat: weather?.coord?.lat,
-            lon: weather?.coord?.lon,
-        },
-        format: {
-            sign: sign(format),
-            speed: speedFormat(format)
+    if ('name' in weather) {
+        return {
+            city: weather?.name,
+            countryCode: weather?.sys?.country,
+            temperature: temparature(weather?.main?.temp, format),
+            icon: WIcon(weather.weather ? weather.weather[0]?.icon : null),
+            description: weather.weather ? weather.weather[0]?.description : null,
+            wind: speed(weather?.wind?.speed, format),
+            pressure: weather?.main?.pressure,
+            humidity: weather?.main?.humidity,
+            sunrise: time(weather?.sys?.sunrise, weather?.timezone),
+            sunset: time(weather?.sys?.sunset, weather?.timezone),
+            cityTime: cityTime(weather.timezone),
+            position: {
+                lat: weather?.coord?.lat,
+                lon: weather?.coord?.lon,
+            },
+            format: {
+                sign: sign(format),
+                speed: speedFormat(format)
+            }
         }
+    } else {
+        return false;
     }
 }
