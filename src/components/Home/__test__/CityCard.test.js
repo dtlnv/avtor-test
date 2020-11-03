@@ -24,12 +24,6 @@ describe('City Card test', () => {
         expect(container.querySelector('.remove-city')).not.toBeNull();
     });
 
-    it('Correct render current city', () => {
-        const { container } = render(<TestAppWrapper><CityCard city={dummyCity} current /></TestAppWrapper>);
-
-        expect(container.querySelector('.fa-location-arrow')).not.toBeNull();
-    });
-
     it('City with error', () => {
         dummyCity.error = true;
         const { findByText } = render(<TestAppWrapper><CityCard city={dummyCity} /></TestAppWrapper>);

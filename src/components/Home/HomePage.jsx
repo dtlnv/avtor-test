@@ -14,6 +14,12 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="weather-list">
+      <CityCard city={{
+    cityId: 0,
+    name: "Test city",
+}} current />
+
+
         {Object.keys(currentCity).length > 0 ? (
           <CityCard city={currentCity} current />
         ) : (
