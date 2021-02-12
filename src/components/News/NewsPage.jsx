@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../Common/Layout";
+import Layout from "../_General/Layout";
 import NewsList from "./List/NewsList";
-import { Button, Loading } from "../Common/UI";
+import { Button, Loading } from "../_General/UI";
 import useNews from "./useNews";
-import Error from "../Common/Error";
+import Error from "../_General/Error";
 
 /**
  * @name NewsPage

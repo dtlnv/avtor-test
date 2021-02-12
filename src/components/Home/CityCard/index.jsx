@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { formated } from "../../../utils/functions";
 import { useSelector } from "react-redux";
-import Error from "../../Common/Error";
+import Error from "../../_General/Error";
 import { useRemoveCity } from "../../../utils/hooks";
 import "./_styles.scss";
 

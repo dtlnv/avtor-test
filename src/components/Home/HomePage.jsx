@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../Common/Layout";
-import { Loading } from "../Common/UI";
+import Layout from "../_General/Layout";
+import { Loading } from "../_General/UI";
 import CityCard from "./CityCard";
 import useWeather from "./useWeather";
 

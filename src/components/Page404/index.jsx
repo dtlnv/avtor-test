@@ -1,6 +1,6 @@
 import React from "react";
-import Error from "../Common/Error";
-import Layout from "../Common/Layout";
+import Error from "../_General/Error";
+import Layout from "../_General/Layout";
 
 /**
  * @name Page404

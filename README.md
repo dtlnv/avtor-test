@@ -52,4 +52,4 @@
 `cd avtor-test` <br/>
 `npm install` <br/>
 `npm start` <br/>
-Открыть http://localhost:3999/
+Открыть http://localhost:3000/

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../Common/UI";
+import { Button } from "../../_General/UI";
 import PropTypes from "prop-types";
 import { useAddCity, useRemoveCity } from "../../../utils/hooks";
 import "./_styles.scss";
