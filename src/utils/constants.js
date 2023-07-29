@@ -8,7 +8,7 @@ export const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather/
 export const WIcon = (icon) => `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
 // cities api key and URL
-const CITIES_API_KEY = 'f309a09253474c40b2db3552a9bcfaca';
+const CITIES_API_KEY = 'c972a01aa4f8490eac61ac3a47766192';
 export const CITIES_API_URL = `https://api.opencagedata.com/geocode/v1/json?language=en&_type=city&key=${CITIES_API_KEY}`;
 
 // website name
