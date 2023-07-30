@@ -4,8 +4,8 @@
 
 <p align="center">
   Online Demo: 
-  <a href="https://master--tubular-elf-698a21.netlify.app/">
-    https://master--tubular-elf-698a21.netlify.app/
+  <a href="https://admirable-kelpie-fe2d9f.netlify.app/">
+    https://admirable-kelpie-fe2d9f.netlify.app/
   </a>
 </p>
 
@@ -61,7 +61,7 @@ The application is built using create-react-app. It works correctly in Webkit-ba
 
 ## 🚀 Try yourself
 
-<a href="https://master--tubular-elf-698a21.netlify.app/">
+<a href="https://admirable-kelpie-fe2d9f.netlify.app/">
 Check online demo
 </a>
 
