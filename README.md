@@ -68,5 +68,5 @@ Check online demo
 or
 1. Clone the repository and open the directory in terminal.
 2. Run `npm ci` or `npm i`.
-3. Run `npm develop`.
+3. Run `npm start`.
 4. Open <a href="http://localhost:3000/">http://localhost:3000/</a>
