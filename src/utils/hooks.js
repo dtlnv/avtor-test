@@ -1,6 +1,6 @@
 const { useDispatch } = require('react-redux');
 const { STORAGE } = require('./constants');
-const { store, setFormat, setCities } = require('./reducer');
+const { store, setFormat, setCities, setShowCurrentCity } = require('./reducer');
 
 /**
  * @name useAppSync
@@ -14,6 +14,10 @@ export function useAppSync() {
     // sync cities between storage and reducer
     const cities = STORAGE.getItem('cities');
     store.dispatch(setCities(JSON.parse(cities || '[]')));
+
+    // sync cities between storage and reducer
+    const showCurrentCity = STORAGE.getItem('showCurrentCity');
+    store.dispatch(setShowCurrentCity(JSON.parse(showCurrentCity || 'true')));
 }
 
 /**
@@ -59,6 +63,13 @@ export const useRemoveCity = () => {
     const dispatch = useDispatch();
 
     return (cityId) => {
+        // hide currentCity
+        if (cityId === 0) {
+          dispatch(setShowCurrentCity(false));
+          STORAGE.setItem('showCurrentCity', false);
+          return;
+        }
+
         let citiesList = JSON.parse(STORAGE.getItem('cities') || '[]');
 
         if (citiesList.find(savedCity => savedCity.id === cityId)) {

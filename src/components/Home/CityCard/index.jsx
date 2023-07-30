@@ -37,11 +37,9 @@ const CityCard = ({ city, current = false }) => {
     return (
       <div
         className={`city center ${weather.cityTime ? `hour-${parseInt(weather.cityTime)}` : ""}`}>
-        {!current ? (
-          <div className="remove-city" title="Unfollow" onClick={removeCityAction}>
-            <i className="fas fa-times"></i>
-          </div>
-        ) : null}
+        <div className="remove-city" title="Unfollow" onClick={removeCityAction}>
+          <i className="fas fa-times"></i>
+        </div>
         <div className="content">
           <h2>
             {current ? <i className="fas fa-location-arrow"></i> : ""}

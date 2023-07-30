@@ -5,6 +5,9 @@ header {
   padding: 10px 0px;
   background: #1c1c1d;
   box-shadow: #999 0px 0px 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 #container {

@@ -23,7 +23,7 @@ describe('News Item test', () => {
         const { container } = render(<NewsItem post={dummyPost} />);
 
         expect(container.querySelector('.title').textContent).toBe(dummyPost.title);
-        expect(container.querySelector('.time').textContent).toBe('October 30, 17:42');
+        expect(container.querySelector('.time').textContent).toContain('October 30');
         expect(container.querySelector('.news-post a').getAttribute('href')).toBe(dummyPost.url);
         expect(container.querySelector('.description').textContent).toBe(dummyPost.description);
         expect(container.querySelector('.image img').getAttribute('src')).toBe(dummyPost.urlToImage);

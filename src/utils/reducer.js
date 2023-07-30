@@ -2,11 +2,13 @@ import { createStore } from 'redux';
 
 const initialState = {
     format: 'metric',
-    cities: []
-}
+    cities: [],
+    showCurrentCity: true,
+};
 
 const SET_FORMAT = 'SET_FORMAT';
 const SET_CITIES = 'SET_CITIES';
+const SET_SHOW_CURRENT_CITY = 'SET_SHOW_CURRENT_CITY';
 
 const mainReducer = (state = initialState, { type, payload }) => {
     switch (type) {
@@ -20,6 +22,11 @@ const mainReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 cities: payload
             }
+        case SET_SHOW_CURRENT_CITY:
+          return {
+            ...state,
+            showCurrentCity: payload,
+          };
         default:
             return state;
     }
@@ -39,6 +46,13 @@ export const setCities = (payload) => {
         type: SET_CITIES,
         payload
     }
+};
+
+export const setShowCurrentCity = (payload) => {
+  return {
+    type: SET_SHOW_CURRENT_CITY,
+    payload,
+  };
 };
 
 export const store = createStore(mainReducer);

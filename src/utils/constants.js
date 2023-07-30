@@ -1,18 +1,15 @@
 // news api key and URL
-const NEWS_API_KEY = '50987e9919c6472487cd7ff086d73368';
-export const NEWS_API_URL = `https://newsapi.org/v2/top-headlines/?apiKey=${NEWS_API_KEY}`;
+export const NEWS_API_URL = `https://newsapi.org/v2/top-headlines/?apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
 
 // weather api key and URL
-const WEATHER_API_KEY = 'b0bff580401faa662ff4afb54790299a';
-export const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather/?appid=${WEATHER_API_KEY}&units=standart`;
+export const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather/?appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=standart`;
 export const WIcon = (icon) => `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
 // cities api key and URL
-const CITIES_API_KEY = 'c972a01aa4f8490eac61ac3a47766192';
-export const CITIES_API_URL = `https://api.opencagedata.com/geocode/v1/json?language=en&_type=city&key=${CITIES_API_KEY}`;
+export const CITIES_API_URL = `https://api.opencagedata.com/geocode/v1/json?language=en&_type=city&key=${process.env.REACT_APP_CITIES_API_KEY}`;
 
 // website name
-export const PROJECT_NAME = 'Weather';
+export const PROJECT_NAME = 'weather app';
 
 // news posts count
 export const POSTS_COUNT = 10;

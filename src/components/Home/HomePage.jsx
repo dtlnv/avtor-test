@@ -14,15 +14,8 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="weather-list">
-        {Object.keys(currentCity).length > 0 ? (
-          <CityCard city={currentCity} current />
-        ) : (
-          <Loading />
-        )}
-
-        {followingCities.length > 0
-          ? followingCities.map((city) => <CityCard city={city} key={city.cityId} />)
-          : null}
+        {currentCity && (Object.keys(currentCity).length > 0 ? <CityCard city={currentCity} current /> : <Loading />)}
+        {followingCities.length > 0 ? followingCities.map((city) => <CityCard city={city} key={city.cityId} />) : null}
       </div>
     </Layout>
   );

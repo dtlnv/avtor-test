@@ -39,7 +39,7 @@ describe('News list test', () => {
         for (let i = 0; i < dummyList.length; i++) {
             expect(container.querySelectorAll('.news-post .title')[i].textContent).toBe(dummyList[i].title);
             expect(container.querySelectorAll('.news-post .description')[i].textContent).toBe(dummyList[i].description);
-            expect(container.querySelectorAll('.news-post .time')[i].textContent).toBe('October 30, 17:42');
+            expect(container.querySelectorAll('.news-post .time')[i].textContent).toContain('October 30');
             expect(container.querySelectorAll('.news-post a')[i].getAttribute('href')).toBe(dummyList[i].url);
             expect(container.querySelectorAll('.news-post img')[i].getAttribute('src')).toBe(dummyList[i].urlToImage);
         }

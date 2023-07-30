@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
     </header>
     <section id="container">{children}</section>
     <footer>
-      &copy; {new Date().getFullYear()} {PROJECT_NAME} by dtelnov
+      &copy; {new Date().getFullYear()} {PROJECT_NAME} by dtlnv
     </footer>
   </>
 );

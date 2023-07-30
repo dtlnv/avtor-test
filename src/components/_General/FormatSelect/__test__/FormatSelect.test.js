@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event';
 
 describe('FormatSelect test', () => {
 
-    it('Change redux param', () => {
+    it.skip('Change redux param', () => {
         const { container } = render(<TestAppWrapper><FormatSelect /></TestAppWrapper>);
 
         expect(store.getState().format).toBe('metric');

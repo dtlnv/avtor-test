@@ -13,17 +13,14 @@ const useWeather = () => {
   const [currentCity, setCurrentCity] = useState({});
   const [followingCities, setFollowingCities] = useState([]);
   const cities = useSelector((store) => store.cities);
+  const showCurrentCity = useSelector((store) => store.showCurrentCity);
 
   // set current city
   useEffect(() => {
     async function getCurrentCity(position) {
       try {
         setCurrentCity(
-          (
-            await Axios.get(
-              `${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
-            )
-          ).data
+          (await Axios.get(`${WEATHER_API_URL}&lat=${position.coords.latitude}&lon=${position.coords.longitude}`)).data
         );
       } catch {
         setCurrentCity({
@@ -34,18 +31,22 @@ const useWeather = () => {
       }
     }
 
-    navigator?.geolocation?.getCurrentPosition(
-      async (position) => {
-        if (position) {
-          getCurrentCity(position);
-        }
-      },
-      (error) => {
-        getCurrentCity(null);
-      },
-      { enableHighAccuracy: true, timeout: 30000, maximumAge: 600000 }
-    );
-  }, []);
+    if (!showCurrentCity) {
+      setCurrentCity(null);
+    } else {
+      navigator?.geolocation?.getCurrentPosition(
+        async (position) => {
+          if (position) {
+            getCurrentCity(position);
+          }
+        },
+        (error) => {
+          getCurrentCity(null);
+        },
+        { enableHighAccuracy: true, timeout: 30000, maximumAge: 600000 }
+      );
+    }
+  }, [showCurrentCity]);
 
   // set following cities
   useEffect(() => {
@@ -74,7 +75,7 @@ const useWeather = () => {
     }
   }, [cities]);
 
-  return { currentCity, followingCities }
+  return { currentCity, followingCities };
 };
 
 export default useWeather;

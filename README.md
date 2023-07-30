@@ -1,55 +1,72 @@
-Создано: Март 2020
+<h1 align="center">
+  Weather App
+</h1>
 
-Рефакторинг: Октябрь 2020
+<p align="center">
+  Online Demo: 
+  <a href="https://main--classy-pegasus-8cb993.netlify.app/">
+    https://main--classy-pegasus-8cb993.netlify.app/
+  </a>
+</p>
 
-## Задание
+This project is a weather web application developed as a test assignment.
 
-Написать погодное веб-приложение с использованием React, Redux, React Router.
+Created: March 2020
 
-Данные можно взять с сайта openweathermap.org или с любого другого сервиса.
+Last refactoring: July 2023 (Update npm dependencies, Design fixes)
 
-На сайте, в шапке или подвале реализовать ссылки:
-- На главную (/)
-- Города (/cities)
-- Новости (/news)
+## Test assignment
 
-Приложение должно уметь:
-- Добавлять/удалять города в список отслеживаемых (хранить в redux)
-- Локально сохранять состояние приложения (обновлять store из ранее сохранённых данных в localStorage)
-- Автоматически запрашивать и отображать погоду по координатам пользователя — это город/место по умолчанию.
+Create a weather application using React, Redux, and React Router.
 
-Всё что посчитаете нужным можно пробросить через Redux.
+Data for weather information can be fetched from the openweathermap.org or any other weather service.
 
-Оформление (дизайн) — не важно.
+The application features links in the header or footer for:
+- Home page (/)
+- Cities (/cities)
+- News (/news)
 
-Результат разработки должен быть сохранён на сервисе GitHub с локальными коммитами разработчика.
+The app has the following functionalities:
+- Add/remove cities to the list of tracked cities (stored in Redux).
+- Save the application state locally (update the store from previously saved data in localStorage).
+- Automatically request and display weather based on the user's coordinates, which serve as the default location.
 
-## Комментарий
+Any necessary data can be passed through Redux.
 
-Приложение написано на базе create-react-app. 
-Оно корректно работает в браузерах на базе Webkit (Chrome, Opera). В других браузерах, например в FireFox и Safari, из-за их политики к геолокации пользователя может не работать погода по умолчанию (вашего города).
+Design and styling are not essential for this task.
 
-## Использованные API
+The final development result should be saved on GitHub with local commits by the developer.
 
-- Погода: openweathermap.org
-- Новости: newsapi.org
-- Города: opencagedata.com (поиск)
+## Note
 
-## Структура проекта
+The application is built using create-react-app. It works correctly in Webkit-based browsers (Chrome, Opera). In other browsers, such as FireFox and Safari, the default weather feature (your city's weather) might not work due to their geolocation policies.
+
+## APIs Used
+
+- Weather: openweathermap.org
+- News: newsapi.org
+- Cities: opencagedata.com (for search)
+
+
+## Project Structure
 
 - `src`
-    - `components` - Компоненты приложения. Каждый находится в отдельной папке.
+    - `components` - Application components, each in a separate folder.
     - `system` 
         - `App` 
-            - `index.js` - Входная точка в приложение
-            - `test.js` - Обертка для среды тестирования
-        - `Router` - Маршрутизатор 
-    - `utils` - Вспомогательные инструменты - константы, функции, redux и глобальные хуки. 
-    
-## Проверка
+            - `index.js` - Application entry point.
+            - `test.js` - Test environment wrapper.
+        - `Router` - Router for handling routes. 
+    - `utils` - Utility tools, constants, functions, Redux, and global hooks.
 
-`git clone https://github.com/dmitritelnov/avtor-test.git` <br/>
-`cd avtor-test` <br/>
-`npm install` <br/>
-`npm start` <br/>
-Открыть http://localhost:3000/
+## 🚀 Try yourself
+
+<a href="https://main--classy-pegasus-8cb993.netlify.app/">
+Check online demo
+</a>
+
+or
+1. Clone the repository and open the directory in terminal.
+2. Run `npm ci` or `npm i`.
+3. Run `npm develop`.
+4. Open <a href="http://localhost:3000/">http://localhost:3000/</a>
