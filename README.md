@@ -48,8 +48,8 @@ The application is built using create-react-app. It works correctly in Webkit-ba
 ## APIs Used
 
 - Weather: openweathermap.org
-- News: newsapi.org
-- Cities: opencagedata.com (for search)
+- News: spaceflightnewsapi.net
+- Cities: opencagedata.com (for city search)
 
 
 ## Project Structure
