@@ -13,13 +13,13 @@ const NewsItem = ({ post }) =>
       <a href={post.url} target="_blank" rel="noopener noreferrer">
         <h2 className="title">{post.title}</h2>
       </a>
-      <div className="time">{datetime(post.publishedAt)}</div>
-      {post.urlToImage && (
+      <div className="time">{datetime(post.published_at)}</div>
+      {post.image_url && (
         <div className="image">
-          <img src={post.urlToImage} alt={post.title} />
+          <img src={post.image_url} alt={post.title} />
         </div>
       )}
-      {post.description && <div className="description">{post.description}</div>}
+      {post.summary && <div className="description">{post.summary}</div>}
     </article>
   ) : null;
 

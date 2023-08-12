@@ -14,7 +14,7 @@ const CitiesPage = () => {
 
   return (
     <Layout>
-      <Input onChange={(e) => setSearch(e.target.value)} placeholder="Type here the city name" />
+      <Input autoFocus onChange={(e) => setSearch(e.target.value)} placeholder="Type here the city name" />
       {list.length > 0 ? <CitiesList list={list} /> : error ? <Error /> : null}
     </Layout>
   );

@@ -25,12 +25,12 @@ const useNews = () => {
 
                 const response = (
                     await Axios.get(
-                        `${NEWS_API_URL}&country=us&pageSize=${POSTS_COUNT}&page=${page}`
+                        `${NEWS_API_URL}&limit=${POSTS_COUNT}&offset=${page * POSTS_COUNT}`
                     )
                 ).data;
 
                 setNewsList((prev) => {
-                    const newList = [...prev, ...response.articles];
+                    const newList = [...prev, ...response.results];
                     if (response.totalResults === newList.length) {
                         setGettingMore(false);
                     }

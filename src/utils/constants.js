@@ -1,5 +1,5 @@
 // news api key and URL
-export const NEWS_API_URL = `https://newsapi.org/v2/top-headlines/?apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+export const NEWS_API_URL = `https://api.spaceflightnewsapi.net/v4/articles/?has_event=false&has_launch=false`;
 
 // weather api key and URL
 export const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather/?appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=standart`;

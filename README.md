@@ -9,6 +9,10 @@
   </a>
 </p>
 
+<p align="center">
+  <img src="preview.gif" alt="Weather App" />
+</p>
+
 This project is a weather web application developed as a test assignment.
 
 Created: March 2020
